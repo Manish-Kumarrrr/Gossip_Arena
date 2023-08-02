@@ -1,67 +1,50 @@
-// import express from "express";
-// // import {Socketio} from "socket.io";
-// import { Server } from "socket.io";
-// import http from 'http';
-// // import { createServer } from "http";
+const PORT = process.env.PORT || 5000;
 
-const PORT=process.env.PORT|| 5000;
-
-// const app=express();
-// const server=http.createServer(app);
-// const io=Server(server);
-
-// server.listen(PORT,()=> console.log(`server has started on port ${PORT}`))
-
-
-// import { createServer } from "http";
-// import { Server } from "socket.io";
-
-// const httpServer = createServer();
-// const app=express();
-
-
-// const io = new Server(app, {
-    //     // ...
-    //   });
-    
-    // io.on("connection", (socket) => {
-        //     // ...
-        //   });
-        // app.use('/',router)
-        
-        // app.listen(PORT,()=>{
-        //     console.log("listening to requests");
-        // });
-        
-        
-        
-        
-        
-        
+import {addUser,removeUser,getUser,getUsersInRoom} from './users.js'
 import router from './router.js';
 import cors from 'cors';
 import express from "express";
-import { createServer } from "http";
+import { createServer, get } from "http";
 import { Server } from "socket.io";
 
 const app = express();
 const httpServer = createServer(app);
-const io = new Server(httpServer, { 
-  
+const io = new Server(httpServer, {
+
   cors: {
     origin: "http://localhost:3000"
   }
- });
+});
 
 app.use('/', router);
-// app.get('/',(req,res)=>res.send("server is listening request (direct)"))
 
 io.on("connection", (socket) => {
   console.log("we have a new connection!!!");
-  
-  socket.on('disconnect',()=>{
+
+  socket.on('join', ({ name, room },callback) => {
+    console.log(name, room);
+    const {error,user}=addUser({id:socket.id,name,room});
+
+    if(error)return callback(error);
+
+    socket.emit('message',{user:'admin',text:`${user.name}, Welcome to the room ${user.room}`})
+    socket.broadcast.to(user.room).emit('message',{user:'admin',text:`${user.name},has joined`});
+    socket.join(user.room);
+
+   callback();
+
+  });
+
+  socket.on('sendMessage',(message,callback)=>{
+    const user=getUser(socket.id);
+
+    io.to(user.room).emit('message',{user:user.name,text:message});
+    callback();
+});
+
+  socket.on('disconnect', () => {
     console.log("user had left!!!");
   })
 });
 
-httpServer.listen(PORT,()=>console.log("server is starting on port ",PORT));
+httpServer.listen(PORT, () => console.log("server is starting on port ", PORT));
