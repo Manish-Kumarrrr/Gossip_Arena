@@ -8,8 +8,8 @@ const Infobar = ({room}) => {
     <div className="infoBar">
         <div className="leftInnerConatiner">
             
-        <img className="onlineIcon" src={onlineIcon} />
-            <h3>{room}</h3>
+        <div><img className="onlineIcon" src={onlineIcon} /></div>
+            <div><h3>{room}</h3></div>
             </div>
         
         <div className="rightInnerContainer">

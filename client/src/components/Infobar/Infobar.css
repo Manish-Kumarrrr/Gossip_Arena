@@ -8,6 +8,9 @@
     width: 100%;
   }
   
+  .leftInnerContainer div{
+    display: inline;
+  }
   .leftInnerContainer {
     /* flex: 0.5; */
     display: flex;
@@ -17,7 +20,6 @@
     margin-left: 5%;
     color: white;
   }
-  
   .rightInnerContainer {
     display: flex;
     flex: 0.5;
@@ -26,5 +28,6 @@
   }
   
   .onlineIcon {
+    /* margin-top: 400%; */
     margin-right: 5%;
   }
