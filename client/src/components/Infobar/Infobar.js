@@ -7,7 +7,7 @@ const Infobar = ({room}) => {
     <div className="infoBar">
         <div className="leftInnerConatiner">
             
-        <h3>You are in :{room}</h3></div>
+        <h3>You are in: {room}</h3></div>
         
         
         <div className="rightInnerContainer">

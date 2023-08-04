@@ -1,10 +1,12 @@
 .messageBox {
     background: #F3F3F3;
-    border-radius: 20px;
-    padding: 5px 20px;
+    border-radius: 0 14px;
+    padding:5px 9px;
     color: white;
     display: inline-block;
     max-width: 80%;
+    
+    
   }
   
   .messageText {
@@ -35,13 +37,12 @@
     letter-spacing: 0.3px;
   }
   
-  .pl-10 {
-    padding-left: 10px;
+  .pl-7 {
+    padding-left: 7px;
+    display:inline;
   }
   
-  .pr-10 {
-    padding-right: 10px;
-  }
+
   
   .justifyStart {
     justify-content: flex-start;
@@ -51,18 +52,27 @@
     justify-content: flex-end;
   }
   
-  .colorWhite {
-    color: white;
+  .colorGreyishBlack {
+    color: #2b2929ee;
   }
   
-  .colorDark {
-    color: #353535;
+  .colorful {
+    font-family: Arial, Helvetica, sans-serif;
+    background:linear-gradient(98.37deg, red  0.99%,blue, red 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+
   }
   
-  .backgroundBlue {
-    background: #2979FF;
+  .backgroundcolorful {
+    background-color:rgba(255, 153, 0, 0.713);
+    
+    /* display: inline; */
   }
   
   .backgroundLight {
-    background: #F3F3F3;
+    /* background:none; */
+    align-items: center;
+    margin-left: 20%;
+    
   }

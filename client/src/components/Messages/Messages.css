@@ -2,4 +2,7 @@
     padding: 5% 0;
     overflow: auto;
     flex: auto;
+    scrollbar-color: red green;
+    /* overflow-y: scroll; */
+            /* background-color: lightgreen; */
   }

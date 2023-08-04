@@ -29,6 +29,7 @@ html, body {
     border-radius: 0;
     padding: 15px 20px;
     width: 100%;
+    
   }
   
   .heading {
@@ -68,4 +69,10 @@ html, body {
   
   button:focus {
     outline: 0;
+  }
+
+  .pp{
+    color: white;
+    font-size: 12px;
+    font-family: cursive;
   }
