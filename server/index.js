@@ -17,6 +17,7 @@ const io = new Server(httpServer, {
 });
 
 app.use('/', router);
+app.use(cors());
 
 io.on("connection", (socket) => {
   console.log("we have a new connection!!!");
