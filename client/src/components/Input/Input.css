@@ -5,10 +5,11 @@
   
   .input {
     border: none;
-    border-radius: 0;
+    border-radius: 5px;
     padding: 5%;
     width: 80%;
     font-size: 1.2em;
+
   }
   
   input:focus, textarea:focus, select:focus{
@@ -19,9 +20,10 @@
     color: #fff !important;
     text-transform: uppercase;
     text-decoration: none;
-    background: #2979FF;
+    background:  linear-gradient(98.37deg, #f89e00 0.99%, #da2f68 100%);
     padding: 20px;
     display: inline-block;
     border: none;
     width: 20%;
+    border-radius: 5px;
   }

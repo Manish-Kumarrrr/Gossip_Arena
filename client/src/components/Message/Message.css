@@ -22,8 +22,8 @@
   .messageContainer {
     display: flex;
     justify-content: flex-end;
-    /* flex-direction: column; */
-    padding: 0 5%;
+    flex-direction: column;
+    padding: 0 3%;
     margin-top: 3px;
   }
   
