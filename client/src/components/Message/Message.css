@@ -1,12 +1,12 @@
   .messageBox {
     background: #F3F3F3;
-    border-radius: 20px;
+  
     padding: 5px 20px;
     color: white;
     display: inline-block;
     max-width: 80%;
   }
-  
+
   .messageText {
     width: 100%;
     letter-spacing: 0;
@@ -44,6 +44,7 @@
   
   .justifyStart {
     justify-content: flex-start;
+    
   }
   
   .justifyEnd {
@@ -60,8 +61,10 @@
   
   .backgroundBlue {
     /* background: #2979FF; */
+    border-radius:  20px 0 0 20px;
   }
   
   .backgroundLight {
     background: #F3F3F3;
+    border-radius: 0 20px 20px 0;
   }

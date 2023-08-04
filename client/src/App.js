@@ -8,6 +8,7 @@ const App =()=>{
         <BrowserRouter>
         <Routes>
             <Route path="/" exact element={<Join/>}/>
+            <Route path="/re-entry" exact element={<Join/>}/>
             <Route path="/chat"  element={<Chat />}/>
         </Routes>
         </BrowserRouter>

@@ -16,6 +16,9 @@ const Chat = () => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const ENDPOINT = 'localhost:5000';
+
+  
+
   useEffect(() => {
     console.log(location)
     const { name, room } = queryString.parse(location.search);
@@ -25,7 +28,13 @@ const Chat = () => {
     setName(name);
     setRoom(room);
 
-    socket.emit('join', { name, room }, () => { });
+    socket.emit('join', { name, room }, (error) => { 
+      if(error){
+      window.location.assign("/re-entry");
+      // setTimeout(() => {  alert(error) }, 5000);
+       
+      }
+    });
 
     console.log(socket);
     return () => {
@@ -54,7 +63,7 @@ const Chat = () => {
 
 
   return (
-    <div className='outerContainer'>
+    <div className={`outerContainer `}>
       <h1 className='heading'>Gossip Arena</h1>
       <div className='container'>
         <Infobar room={room}/>
