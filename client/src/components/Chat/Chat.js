@@ -55,6 +55,7 @@ const Chat = () => {
 
   return (
     <div className='outerContainer'>
+      <h1 className='heading'>Gossip Arena</h1>
       <div className='container'>
         <Infobar room={room}/>
         <Messages messages={messages} name={name}/>
