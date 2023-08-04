@@ -9,7 +9,7 @@ const Input = ({message,setMessage,sendMessage}) => {
     myRef.current?.focus()
   }
 
-  useEffect(() => { focus(myRef) },[])
+  useEffect(() => { focus(myRef) },[message])
   return (
     <form className="form">
     <input
