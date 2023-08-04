@@ -9,12 +9,14 @@ import { Server } from "socket.io";
 
 const app = express();
 const httpServer = createServer(app);
-const io = new Server(httpServer, {
+const io = new Server(httpServer
+//                       ,{
 
-  cors: {
-    origin: "https://gossip-arena-ndsg.vercel.app/"
-  }
-});
+//   cors: {
+//     origin: "https://gossip-arena-ndsg.vercel.app/"
+//   }
+// }
+                     );
 
 app.use('/', router);
 app.use(cors());
