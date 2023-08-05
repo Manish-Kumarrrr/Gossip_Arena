@@ -1,7 +1,7 @@
 const PORT = process.env.PORT || 5000;
 
 import { addUser, removeUser, getUser, getUsersInRoom } from './users.js'
-import router from './router.js';
+import router from './Router.js';
 import cors from 'cors';
 import express from "express";
 import { createServer, get } from "http";
