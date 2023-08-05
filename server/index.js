@@ -14,8 +14,8 @@ const io = new Server(httpServer
                       ,{
 
   cors: {
-    origin: 'https://gossip-arena-ndsg.vercel.app/',
-  methods: 'GET,POST',
+    origin: 'https://gossip-arena-ndsg.vercel.app/:q',
+
   allowedHeaders: 'Access-Control-Allow-Origin'
   }
 } 
