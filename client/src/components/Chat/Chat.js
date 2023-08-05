@@ -15,7 +15,7 @@ const Chat = () => {
   const [room, setRoom] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
-  const ENDPOINT = 'localhost:5000';
+  const ENDPOINT = 'https://gossip-arena.vercel.app/';
 
   
 
