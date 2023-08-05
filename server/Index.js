@@ -19,7 +19,7 @@ const io = new Server(httpServer
 }
                      );
 
-app.use(cors());
+// app.use(cors());
 
 io.on("connection", (socket) => {
   console.log("we have a new connection!!!");
