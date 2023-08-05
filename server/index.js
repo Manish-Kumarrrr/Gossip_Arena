@@ -14,12 +14,12 @@ const io = new Server(httpServer
                       ,{
 
   cors: {
-    origin: "https://gossip-arena-ndsg.vercel.app/"
+    origin: "https://gossip-arena-ndsg.vercel.app"
   }
 }
                      );
 
-app.use(cors());
+// app.use(cors());
 
 io.on("connection", (socket) => {
   console.log("we have a new connection!!!");
