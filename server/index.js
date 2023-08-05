@@ -11,15 +11,17 @@ const app = express();
 app.use('/', router); 
 const httpServer = createServer(app);
 const io = new Server(httpServer
-//                       ,{
+                      ,{
 
-//   cors: {
-//     origin: "localhost:3000"
-//   }
-// } 
+  cors: {
+    origin: 'https://gossip-arena-ndsg.vercel.app',
+  methods: 'GET,POST',
+  allowedHeaders: 'Access-Control-Allow-Origin'
+  }
+} 
 );
 
-app.use(cors());
+// app.use(cors());
 
 io.on("connection", (socket) => {
   console.log("we have a new connection!!!");
