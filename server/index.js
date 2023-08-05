@@ -14,10 +14,9 @@ const io = new Server(httpServer
                       ,{
 
   cors: {
-    origin: "https://gossip-arena-ndsg.vercel.app"
+    origin: "localhost:3000"
   }
-}
-                     );
+} );
 
 // app.use(cors());
 
