@@ -8,6 +8,7 @@ import { createServer, get } from "http";
 import { Server } from "socket.io";
 
 const app = express();
+app.use('/', router); 
 const httpServer = createServer(app);
 const io = new Server(httpServer
                       ,{
@@ -18,7 +19,6 @@ const io = new Server(httpServer
 }
                      );
 
-app.use('/', router);
 app.use(cors());
 
 io.on("connection", (socket) => {
