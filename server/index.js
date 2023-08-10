@@ -1,4 +1,3 @@
-const PORT = process.env.PORT || 5000;
 
 import { addUser, removeUser, getUser, getUsersInRoom } from './Users.js'
 import router from './Router.js';
@@ -7,24 +6,28 @@ import express from "express";
 import { createServer, get } from "http";
 import { Server } from "socket.io";
 
+const PORT = 5000;
 const app = express();
-app.use('/', router); 
+app.use('/', router);
+app.use(cors());
+
 const httpServer = createServer(app);
+// const httpServer = createServer(app);
 const io = new Server(httpServer
-                      ,{
+  , {
 
-  cors: {
-    origin: 'https://gossip-arena-ndsg.vercel.app/:q',
-
-  allowedHeaders: 'Access-Control-Allow-Origin'
+    cors: {
+      origin: '*',
+      methods: ["GET", "POST"]
+      // allowedHeaders: 'Access-Control-Allow-Origin'
+    }
   }
-} 
 );
 
 // app.use(cors());
 
 io.on("connection", (socket) => {
-  console.log("we have a new connection!!!");
+  console.log("we have a new connection!!! with socket id : " , socket.id);
 
   socket.on('join', ({ name, room }, callback) => {
     console.log(name, room);
@@ -38,7 +41,7 @@ io.on("connection", (socket) => {
 
     io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
 
-    
+
 
   });
 
@@ -46,8 +49,8 @@ io.on("connection", (socket) => {
     const user = getUser(socket.id);
 
     io.to(user.room).emit('message', { user: user.name, text: message });
-    io.to(user.room).emit('roomData', { room: user.room, users:getUsersInRoom(user.room) });
-   
+    io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
+
   });
 
   socket.on('disconnect', () => {

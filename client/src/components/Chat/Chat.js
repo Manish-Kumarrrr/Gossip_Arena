@@ -15,7 +15,9 @@ const Chat = () => {
   const [room, setRoom] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
-  const ENDPOINT = 'https://gossip-arena.vercel.app/';
+  const url = process.env.REACT_APP_SERVER;
+  console.log('****',process.env.REACT_APP_SERVER)
+  const ENDPOINT = url;
 
   
 
@@ -77,3 +79,5 @@ const Chat = () => {
 }
 
 export default Chat
+
+
