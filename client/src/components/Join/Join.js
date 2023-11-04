@@ -14,7 +14,7 @@ const Join = () => {
   function focus(myRef) {
     // setTimeout(() => { myRef.current?.focus() }, 50);
     myRef.current?.focus()
-    if(location.pathname=='/re-entry')alert('Username already taken!! ')
+    if(location.pathname==='/re-entry')alert('Username already taken!! ')
   }
   useEffect(() => { focus(myRef) }, [])
   console.log("join");

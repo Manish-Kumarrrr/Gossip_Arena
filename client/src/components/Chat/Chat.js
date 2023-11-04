@@ -6,6 +6,7 @@ import './Chat.css';
 import Infobar from '../Infobar/Infobar.js';
 import Input from '../Input/Input.js'
 import Messages from '../Messages/Messages.js'
+import { aesEncryptWrapper } from '../AES.js';
 
 let socket;
 
@@ -49,7 +50,7 @@ const Chat = () => {
 
   useEffect(() => {
     socket.on('message', (message) => {
-      setMessages([...messages, message]);
+      setMessages([...messages, {...message, room:room}]);
 
     })},[messages]);
 
@@ -57,7 +58,7 @@ const Chat = () => {
   const sendMessage = (event) => {
     event.preventDefault();
     if (message) {
-      socket.emit('sendMessage', message, () => setMessage(''))
+      socket.emit('sendMessage', aesEncryptWrapper(message, room), () => setMessage(''))
     }
   }
 
